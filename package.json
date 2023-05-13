@@ -39,6 +39,7 @@
     "build": "unbuild",
     "dev": "unbuild --stub",
     "lint": "eslint .",
+    "play": "vite ground",
     "prepublishOnly": "nr build",
     "release": "bumpp && npm publish",
     "start": "esno src/index.ts",
@@ -62,9 +63,15 @@
     "vitest": "^0.29.8"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm lint-staged"
+    "pre-commit": ""
   },
   "lint-staged": {
     "*": "eslint --fix"
+  },
+  "dependencies": {
+    "@types/react": "^18.2.6",
+    "fast-glob": "^3.2.12",
+    "magic-string": "^0.30.0",
+    "react": "^18.2.0"
   }
 }
