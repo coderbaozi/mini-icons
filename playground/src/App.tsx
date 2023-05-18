@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import ReactLogo from './assets/react.svg'
 import './App.css'
 
 function App() {
@@ -7,14 +7,8 @@ function App() {
   
   return (
     <>
-      <div>
-        {React.createElement(reactLogo,null,null)}
-        {/* <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a> */}
+      <div style={{width:'29px',height: '10px'}}>
+        <ReactLogo />
       </div>
       <h1>Vite + React</h1>
       <div className="card">

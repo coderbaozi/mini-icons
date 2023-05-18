@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
-import IconPlugin from '../src/index'
-
+import react from '@vitejs/plugin-react'
+import ViteSvg from "../src/index";
+// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [IconPlugin()],
+  plugins: [react(),ViteSvg()],
 })
