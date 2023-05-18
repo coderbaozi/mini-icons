@@ -7,6 +7,9 @@ importers:
       '@types/react':
         specifier: ^18.2.6
         version: 18.2.6
+      '@types/svg-parser':
+        specifier: ^2.0.3
+        version: 2.0.3
       fast-glob:
         specifier: ^3.2.12
         version: 3.2.12
@@ -16,6 +19,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      svg-parser:
+        specifier: ^2.0.4
+        version: 2.0.4
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^0.38.4
@@ -929,6 +935,10 @@ packages:
   /@types/semver@7.3.13:
     resolution: {integrity: sha512-21cFJr9z3g5dW8B0CVI9g2O9beqaThGQ6ZFBqHfwhzLDKUxaqTIy3vnfah/UPkfOiF2pLq+tGz+W8RyCskuslw==}
     dev: true
+
+  /@types/svg-parser@2.0.3:
+    resolution: {integrity: sha512-PKEmDmVWO8f4wwSZDHKHtdnYRM5NI4dCB0lawtUYpxfGhhuQ0qUky80qk6CR8SZhFrRcJmNnWOpN+8uh/X9qgg==}
+    dev: false
 
   /@types/unist@2.0.6:
     resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==}
@@ -4110,6 +4120,10 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
     dev: true
+
+  /svg-parser@2.0.4:
+    resolution: {integrity: sha512-e4hG1hRwoOdRb37cIMSgzNsxyzKfayW6VOflrwvR+/bzrkyxY/31WkbgnQpgtrNp1SdpJvpUAGTa/ZoiPNDuRQ==}
+    dev: false
 
   /tar@6.1.13:
     resolution: {integrity: sha512-jdIBIN6LTIe2jqzay/2vtYLlBHa3JF42ot3h1dW8Q0PaAG4v8rm0cvpVePtau5C6OKXGGcgO9q2AMNSWxiLqKw==}

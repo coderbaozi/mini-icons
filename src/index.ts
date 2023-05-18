@@ -2,11 +2,19 @@ import path, { dirname } from 'node:path'
 import fs from 'node:fs'
 import MagicString from 'magic-string'
 import type { Plugin } from 'vite'
+import { parse } from 'svg-parser'
 
 export interface Options {}
 interface IconDependency {
   iconName: string
   iconPath: string
+}
+
+function preHandleSvg(svgCode: string) {
+  const ast = parse(svgCode)
+  // recursion the ast to remove width and height
+  // and change dash name to small hump name style
+  return ast
 }
 
 const importRE = /import (.+) from ['"]([^'"]+\.svg)['"]/g
@@ -32,6 +40,7 @@ export default function (_options: Options = {}): Plugin {
       if (dependencyFile.length) {
         for (const file of dependencyFile) {
           const svgCode = fs.readFileSync(path.join(dirname(id), file.iconPath), 'utf-8')
+          preHandleSvg(svgCode)
           const iconComponent = `const ${file.iconName} = () => {
             return (${svgCode})
           }\n`

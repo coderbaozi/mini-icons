@@ -46,6 +46,14 @@
     "test": "vitest",
     "typecheck": "tsc --noEmit"
   },
+  "dependencies": {
+    "@types/react": "^18.2.6",
+    "@types/svg-parser": "^2.0.3",
+    "fast-glob": "^3.2.12",
+    "magic-string": "^0.30.0",
+    "react": "^18.2.0",
+    "svg-parser": "^2.0.4"
+  },
   "devDependencies": {
     "@antfu/eslint-config": "^0.38.4",
     "@antfu/utils": "^0.7.2",
@@ -63,15 +71,9 @@
     "vitest": "^0.29.8"
   },
   "simple-git-hooks": {
-    "pre-commit": ""
+    "pre-commit": "pnpm lint-staged"
   },
   "lint-staged": {
     "*": "eslint --fix"
-  },
-  "dependencies": {
-    "@types/react": "^18.2.6",
-    "fast-glob": "^3.2.12",
-    "magic-string": "^0.30.0",
-    "react": "^18.2.0"
   }
 }
