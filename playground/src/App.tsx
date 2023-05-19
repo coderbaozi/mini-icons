@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 import ReactLogo from './assets/react.svg'
+import Boom from './assets/boom.svg'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
   return (
     <>
-      <div>
-        <ReactLogo />
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <ReactLogo style={{ width: 30, height: 30 }} />
+        <Boom style={{ width: 30, height: 30 }} />
       </div>
       <h1>Vite + React</h1>
       <div className="card">

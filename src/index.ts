@@ -3,6 +3,7 @@ import fs from 'node:fs'
 import MagicString from 'magic-string'
 import type { Plugin } from 'vite'
 import { parse } from 'svg-parser'
+import type { ElementNode, RootNode, TextNode } from 'svg-parser'
 
 export interface Options {}
 interface IconDependency {
@@ -10,11 +11,34 @@ interface IconDependency {
   iconPath: string
 }
 
+function dashToCamelCase(str: string): string {
+  const words = str.split('-')
+  const firstWord = words[0]
+  const restWords = words.slice(1).map(word => word.charAt(0).toUpperCase() + word.slice(1))
+  const camelCase = [firstWord, ...restWords].join('')
+  return camelCase
+}
+
+function convertAst(ast: RootNode | ElementNode | TextNode, depBlocks: string[]) {
+  const { children = false } = ast
+  if (children.length) {
+    for (const child of children) {
+      for (const key in child.properties) {
+        if (key.includes('-'))
+          depBlocks.push(key)
+      }
+      convertAst(child, depBlocks)
+    }
+  }
+  return depBlocks
+}
+
 function preHandleSvg(svgCode: string) {
-  const ast = parse(svgCode)
+  const depBlocks: string[] = []
   // recursion the ast to remove width and height
-  // and change dash name to small hump name style
-  return ast
+  // and change dash name to small camel name style
+  const ast = parse(svgCode)
+  return convertAst(ast, depBlocks)
 }
 
 const importRE = /import (.+) from ['"]([^'"]+\.svg)['"]/g
@@ -40,9 +64,13 @@ export default function (_options: Options = {}): Plugin {
       if (dependencyFile.length) {
         for (const file of dependencyFile) {
           const svgCode = fs.readFileSync(path.join(dirname(id), file.iconPath), 'utf-8')
-          preHandleSvg(svgCode)
-          const iconComponent = `const ${file.iconName} = () => {
-            return (${svgCode})
+          const depBlocks = preHandleSvg(svgCode)
+          const enhanceSvgCode = new MagicString(svgCode)
+          for (const block of depBlocks)
+            enhanceSvgCode.replace(block, dashToCamelCase(block))
+          enhanceSvgCode.replace(/width="(\d+)" height="(\d+)"/, '')
+          const iconComponent = `const ${file.iconName} = ( props ) => {
+            return (<div {...props} >${enhanceSvgCode.toString()}</div>)
           }\n`
           s.append(iconComponent)
         }
