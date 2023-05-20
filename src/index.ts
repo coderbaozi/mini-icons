@@ -20,6 +20,7 @@ function dashToCamelCase(str: string): string {
 }
 
 function convertAst(ast: RootNode | ElementNode | TextNode, depBlocks: string[]) {
+  // @ts-expect-error let me see
   const { children = false } = ast
   if (children.length) {
     for (const child of children) {
@@ -46,6 +47,12 @@ export default function (_options: Options = {}): Plugin {
   return {
     name: 'vite-plugin-icon',
     enforce: 'pre',
+    resolveId: {
+      order: 'pre',
+      handler(source) {
+        return { id: source, external: true }
+      },
+    },
     async transform(code, id) {
       const s = new MagicString(code)
       // when use `import <IconName> from '~/assets/icon/<icon.svg>`
