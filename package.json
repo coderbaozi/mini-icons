@@ -46,6 +46,9 @@
     "test": "vitest",
     "typecheck": "tsc --noEmit"
   },
+  "peerDependencies": {
+    "vite": "^4.2.1"
+  },
   "dependencies": {
     "@types/react": "^18.2.6",
     "@types/svg-parser": "^2.0.3",
@@ -53,9 +56,6 @@
     "magic-string": "^0.30.0",
     "react": "^18.2.0",
     "svg-parser": "^2.0.4"
-  },
-  "peerDependencies": {
-    "vite": "^4.2.1"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.38.4",
