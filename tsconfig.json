@@ -3,11 +3,18 @@
     "target": "ESNext",
     "module": "ESNext",
     "lib": [
+      "DOM",
+      "DOM.Iterable",
       "ESNext"
+    ],
+    "types": [
+      "vite/client"
     ],
     "jsx": "react-jsx",
     "moduleResolution": "node",
     "esModuleInterop": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
     "strict": true,
     "strictNullChecks": true,
     "resolveJsonModule": true,
