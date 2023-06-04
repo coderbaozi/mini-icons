@@ -90,8 +90,8 @@ export default function (_options: Options = {}): Plugin {
           for (const block of depBlocks)
             enhanceSvgCode.replace(block, dashToCamelCase(block))
           enhanceSvgCode.replace(/width="(\d+)" height="(\d+)"/, '')
-          const iconComponent = `const ${file.iconName} = ( props ) => {
-            return (<span {...props} >${enhanceSvgCode.toString()}</span>)
+          const iconComponent = `const ${file.iconName} = ( {style} ) => {
+            return (<span style={{display: 'inline-flex',...style}} >${enhanceSvgCode.toString()}</span>)
           }\n`
           s.append(iconComponent)
         }

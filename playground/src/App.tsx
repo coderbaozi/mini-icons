@@ -7,10 +7,8 @@ function App() {
   const [count, setCount] = useState(0)
   return (
     <>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <ReactLogo style={{ width: 30, height: 30 }} />
-        <Boom style={{ width: 30, height: 30 }} />
-      </div>
+      <ReactLogo style={{ width: 30, height: 30 }} />
+      <Boom style={{ width: 30, height: 30 }} />
       <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount(count => count + 1)}>
