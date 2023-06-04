@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-icon",
   "type": "module",
-  "version": "0.0.1-alpha.0",
+  "version": "1.0.0-beta",
   "packageManager": "pnpm@8.1.1",
   "description": "",
   "author": "Baozi",
@@ -37,6 +37,8 @@
   ],
   "scripts": {
     "build": "unbuild",
+    "build:play": "vite build ./playground",
+    "preview": "vite preview ./playground",
     "dev": "unbuild --stub",
     "lint": "eslint .",
     "play": "vite playground",
@@ -55,7 +57,8 @@
     "fast-glob": "^3.2.12",
     "magic-string": "^0.30.0",
     "react": "^18.2.0",
-    "svg-parser": "^2.0.4"
+    "svg-parser": "^2.0.4",
+    "vite-plugin-icon": "workspace:0.0.1-alpha.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.38.4",
@@ -68,6 +71,7 @@
     "pnpm": "^8.1.1",
     "rimraf": "^4.4.1",
     "simple-git-hooks": "^2.8.1",
+    "tsup": "^6.7.0",
     "typescript": "^5.0.3",
     "unbuild": "^1.2.0",
     "vite": "^4.2.1",
