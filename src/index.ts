@@ -5,7 +5,7 @@ import type { Plugin } from 'vite'
 import { parse } from 'svg-parser'
 import type { ElementNode, RootNode, TextNode } from 'svg-parser'
 
-export interface Options {}
+export interface Options { }
 interface IconDependency {
   iconName: string
   iconPath: string
@@ -42,11 +42,31 @@ function preHandleSvg(svgCode: string) {
   return convertAst(ast, depBlocks)
 }
 
+function isExistFile(name: string) {
+  return fs.existsSync(name)
+}
+
+const TYPE_FILE_NAME = 'svg.d.ts'
+const SVG_FILE_DATA = `declare module '*.svg' {
+  import { FC, SVGProps } from 'react'
+  const content: FC<SVGProps<SVGSVGElement>>
+  export default content
+}`
+
+let typeFilePath: null | string = null
+
 const importRE = /import (.+) from ['"]([^'"]+\.svg)['"]/g
 export default function (_options: Options = {}): Plugin {
   return {
     name: 'vite-plugin-icon',
     enforce: 'pre',
+    resolveId(_source, importer) {
+      if (importer?.includes('index.html') && typeFilePath === null) {
+        typeFilePath = path.join(dirname(importer), TYPE_FILE_NAME)
+        if (!isExistFile(typeFilePath))
+          fs.writeFileSync(typeFilePath!, SVG_FILE_DATA, { encoding: 'utf-8' })
+      }
+    },
     async transform(code, id) {
       const s = new MagicString(code)
       // when use `import <IconName> from '~/assets/icon/<icon.svg>`
@@ -71,11 +91,12 @@ export default function (_options: Options = {}): Plugin {
             enhanceSvgCode.replace(block, dashToCamelCase(block))
           enhanceSvgCode.replace(/width="(\d+)" height="(\d+)"/, '')
           const iconComponent = `const ${file.iconName} = ( props ) => {
-            return (<div {...props} >${enhanceSvgCode.toString()}</div>)
+            return (<span {...props} >${enhanceSvgCode.toString()}</span>)
           }\n`
           s.append(iconComponent)
         }
       }
+
       return {
         code: s.toString(),
         map: s.generateMap(),
