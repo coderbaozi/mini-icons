@@ -1,17 +1,17 @@
 {
   "name": "vite-plugin-icon",
   "type": "module",
-  "version": "1.0.0-beta",
+  "version": "1.0.1-beta.0",
   "packageManager": "pnpm@8.1.1",
   "description": "",
   "author": "Baozi",
   "license": "MIT",
-  "homepage": "https://github.com/coderbaozi/vite-plugin-icon#readme",
+  "homepage": "https://github.com/coderbaozi/mini-icons#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/coderbaozi/ite-plugin-icon.git"
+    "url": "git+https://github.com/coderbaozi/mini-icons.git"
   },
-  "bugs": "https://github.com/coderbaozi/ite-plugin-icon/issues",
+  "bugs": "https://github.com/coderbaozi/mini-icons/issues",
   "keywords": [],
   "sideEffects": false,
   "exports": {
@@ -57,8 +57,7 @@
     "fast-glob": "^3.2.12",
     "magic-string": "^0.30.0",
     "react": "^18.2.0",
-    "svg-parser": "^2.0.4",
-    "vite-plugin-icon": "workspace:0.0.1-alpha.0"
+    "svg-parser": "^2.0.4"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.38.4",
