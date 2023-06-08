@@ -21,7 +21,7 @@ function dashToCamelCase(str: string): string {
 
 function convertAst(ast: RootNode | ElementNode | TextNode, depBlocks: string[]) {
   // @ts-expect-error let me see
-  const { children = false } = ast
+  const { children } = ast
   if (children.length) {
     for (const child of children) {
       for (const key in child.properties) {
@@ -88,7 +88,7 @@ export default function (_options: Options = {}): Plugin {
           const depBlocks = preHandleSvg(svgCode)
           const enhanceSvgCode = new MagicString(svgCode)
           for (const block of depBlocks)
-            enhanceSvgCode.replace(block, dashToCamelCase(block))
+            enhanceSvgCode.replaceAll(block, dashToCamelCase(block))
           enhanceSvgCode.replace(/width="(\d+)" height="(\d+)"/, '')
           const iconComponent = `const ${file.iconName} = ( {style} ) => {
             return (<span style={{display: 'inline-flex',width: '100%',height: '100%',...style}} >${enhanceSvgCode.toString()}</span>)
