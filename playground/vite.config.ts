@@ -5,5 +5,5 @@ import ViteSvg from '../src/index'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), ViteSvg()],
+  plugins: [react(), ViteSvg(), Inspect()],
 })

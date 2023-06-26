@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import ReactLogo from './assets/react.svg'
 import Boom from './assets/boom.svg'
+import UnGpt from './assets/ungpt.svg'
 import './App.css'
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <div style={{ display: 'flex', width: 30, height: 30 }}>
       <ReactLogo style={{ width: 30, height: 30 }} />
         <Boom/>
+        <UnGpt></UnGpt>
       </div>
       <h1>Vite + React</h1>
       <div className="card">
