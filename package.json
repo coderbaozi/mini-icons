@@ -52,20 +52,22 @@
   "peerDependencies": {
     "vite": "^4.2.1"
   },
+  "dependencies": {
+    "@types/svg-parser": "^2.0.3",
+    "magic-string": "^0.30.0",
+    "svg-parser": "^2.0.4"
+  },
   "devDependencies": {
     "@antfu/eslint-config": "^0.38.4",
     "@types/node": "^18.15.11",
     "@types/react": "^18.2.6",
-    "@types/svg-parser": "^2.0.3",
     "bumpp": "^9.1.0",
     "eslint": "^8.37.0",
     "esno": "^0.16.3",
     "lint-staged": "^13.2.0",
-    "magic-string": "^0.30.0",
     "react": "^18.2.0",
     "rimraf": "^4.4.1",
     "simple-git-hooks": "^2.8.1",
-    "svg-parser": "^2.0.4",
     "tsup": "^6.7.0",
     "typescript": "^5.0.3",
     "unbuild": "^1.2.0",

@@ -3,6 +3,16 @@ lockfileVersion: '6.0'
 importers:
 
   .:
+    dependencies:
+      '@types/svg-parser':
+        specifier: ^2.0.3
+        version: 2.0.3
+      magic-string:
+        specifier: ^0.30.0
+        version: 0.30.0
+      svg-parser:
+        specifier: ^2.0.4
+        version: 2.0.4
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^0.38.4
@@ -13,9 +23,6 @@ importers:
       '@types/react':
         specifier: ^18.2.6
         version: 18.2.6
-      '@types/svg-parser':
-        specifier: ^2.0.3
-        version: 2.0.3
       bumpp:
         specifier: ^9.1.0
         version: 9.1.0
@@ -28,9 +35,6 @@ importers:
       lint-staged:
         specifier: ^13.2.0
         version: 13.2.0
-      magic-string:
-        specifier: ^0.30.0
-        version: 0.30.0
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -40,9 +44,6 @@ importers:
       simple-git-hooks:
         specifier: ^2.8.1
         version: 2.8.1
-      svg-parser:
-        specifier: ^2.0.4
-        version: 2.0.4
       tsup:
         specifier: ^6.7.0
         version: 6.7.0(typescript@5.0.3)
@@ -735,7 +736,6 @@ packages:
 
   /@jridgewell/sourcemap-codec@1.4.15:
     resolution: {integrity: sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==}
-    dev: true
 
   /@jridgewell/trace-mapping@0.3.18:
     resolution: {integrity: sha512-w+niJYzMHdd7USdiH2U6869nqhD2nbfZXND5Yp93qIbEmnDNk7PD48o+YchRVpzMU7M6jVCbenTR7PA1FLQ9pA==}
@@ -938,7 +938,7 @@ packages:
 
   /@types/svg-parser@2.0.3:
     resolution: {integrity: sha512-PKEmDmVWO8f4wwSZDHKHtdnYRM5NI4dCB0lawtUYpxfGhhuQ0qUky80qk6CR8SZhFrRcJmNnWOpN+8uh/X9qgg==}
-    dev: true
+    dev: false
 
   /@types/unist@2.0.6:
     resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==}
@@ -3202,7 +3202,6 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.15
-    dev: true
 
   /mdast-util-from-markdown@0.8.5:
     resolution: {integrity: sha512-2hkTXtYYnr+NubD/g6KGBS/0mFmBcifAsI0yIWRiRo0PjVs6SSOSOdtzbp6kSGnShDN6G5aWZpKQ2lWRy27mWQ==}
@@ -4213,7 +4212,7 @@ packages:
 
   /svg-parser@2.0.4:
     resolution: {integrity: sha512-e4hG1hRwoOdRb37cIMSgzNsxyzKfayW6VOflrwvR+/bzrkyxY/31WkbgnQpgtrNp1SdpJvpUAGTa/ZoiPNDuRQ==}
-    dev: true
+    dev: false
 
   /tar@6.1.15:
     resolution: {integrity: sha512-/zKt9UyngnxIT/EAGYuxaMYgOIJiP81ab9ZfkILq4oNLPFX50qyYmu7jRj9qeXoxmJHjGlbH0+cm2uy1WCs10A==}
